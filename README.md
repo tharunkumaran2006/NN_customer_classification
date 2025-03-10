@@ -28,37 +28,55 @@ Write your own steps
 
 ## PROGRAM
 
-### Name: 
-### Register Number:
+### Name: THARUN V K 
+### Register Number: 212223230231
 
 ```python
 class PeopleClassifier(nn.Module):
     def __init__(self, input_size):
         super(PeopleClassifier, self).__init__()
-        #Include your code here
+        self.fc1 = nn.Linear(input_size,32)
+        self.fc2 = nn.Linear(32,16)
+        self.fc3 = nn.Linear(16,8)
+        self.fc4 = nn.Linear(8,4)
 
-
-
-    def forward(self, x):
-        #Include your code here
+    def forward(self,x):
+      x = F.relu(self.fc1(x))
+      x = F.relu(self.fc2(x))
+      x = F.relu(self.fc3(x))
+      x = self.fc4(x)
+      return x
         
 
 ```
 ```python
 # Initialize the Model, Loss Function, and Optimizer
-
+model = PeopleClassifier(input_size=X_train.shape[1])
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.Adam(model.parameters(),lr=0.01)
 
 ```
 ```python
-def train_model(model, train_loader, criterion, optimizer, epochs):
-    #Include your code here
+def train_model(model, train_loader,criterion,optimizer,epochs):
+  for epoch in range(epochs):
+    model.train()
+    for X_batch, y_batch in train_loader:
+      optimizer.zero_grad()
+      output = model(X_batch)
+      loss = criterion(output,y_batch)
+      loss.backward()
+      optimizer.step()
+
+    if (epoch + 1) % 10 == 0:
+      print(f"Epoch {epoch+1}/{epochs}, Loss: {loss.item():.4f}")
 ```
 
 
 
 ## Dataset Information
 
-Include screenshot of the dataset
+![Screenshot 2025-03-10 111631](https://github.com/user-attachments/assets/17ce6ccf-d49a-4916-b88c-744ee2aaf6bf)
+
 
 ## OUTPUT
 
@@ -66,16 +84,19 @@ Include screenshot of the dataset
 
 ### Confusion Matrix
 
-Include confusion matrix here
+![Screenshot 2025-03-10 115719](https://github.com/user-attachments/assets/2f8adcb9-735a-4d76-94d9-abd0ad21435f)
+
 
 ### Classification Report
 
-Include Classification Report here
+![Screenshot 2025-03-10 115710](https://github.com/user-attachments/assets/e2475464-4e26-4ecc-96eb-d877fc938059)
+
 
 
 ### New Sample Data Prediction
 
-Include your sample input and output here
+![Screenshot 2025-03-10 115726](https://github.com/user-attachments/assets/045992bc-3de5-425e-b66e-e96c3bf045ab)
+
 
 ## RESULT
 Include your result here
