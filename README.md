@@ -1,4 +1,4 @@
-# Developing a Neural Network Classification Model
+# EX 02 : Developing a Neural Network Classification Model
 
 ## AIM
 
@@ -19,11 +19,25 @@ Include the neural network model diagram.
 ## DESIGN STEPS
 
 ### STEP 1:
-Write your own steps
+Data Preprocessing: Clean, normalize, and split data into training, validation, and test sets.
 
 ### STEP 2:
+Model Design:
+ * Input Layer: Number of neurons = features.
+ * Hidden Layers: 2 layers with ReLU activation.
+ * Output Layer: 4 neurons (segments A, B, C, D) with softmax activation.
 
 ### STEP 3:
+Model Compilation: Use categorical crossentropy loss, Adam optimizer, and track accuracy.
+
+## STEP 4:
+Training: Train with early stopping, batch size (e.g., 32), and suitable epochs.
+
+## STEP 5:
+Evaluation: Assess using accuracy, confusion matrix, precision, and recall.
+
+## STEP 6:
+Optimization: Tune hyperparameters (layers, neurons, learning rate, batch size).
 
 
 ## PROGRAM
@@ -80,23 +94,20 @@ def train_model(model, train_loader,criterion,optimizer,epochs):
 
 ## OUTPUT
 
-
-
 ### Confusion Matrix
 
-![Screenshot 2025-03-10 115719](https://github.com/user-attachments/assets/2f8adcb9-735a-4d76-94d9-abd0ad21435f)
+![Screenshot 2025-03-10 210908](https://github.com/user-attachments/assets/612289e7-37c7-4bc6-9af4-e3ce85f2e0b0)
 
 
 ### Classification Report
 
-![Screenshot 2025-03-10 115710](https://github.com/user-attachments/assets/e2475464-4e26-4ecc-96eb-d877fc938059)
-
+![Screenshot 2025-03-10 210922](https://github.com/user-attachments/assets/c3875263-f1b0-4e0d-b25a-f67eb4a64e40)
 
 
 ### New Sample Data Prediction
 
-![Screenshot 2025-03-10 115726](https://github.com/user-attachments/assets/045992bc-3de5-425e-b66e-e96c3bf045ab)
+![Screenshot 2025-03-10 210933](https://github.com/user-attachments/assets/0e14c2c3-05da-4a00-9277-9363ecf8b56e)
 
 
 ## RESULT
-Include your result here
+So, To develop a neural network classification model for the given dataset is executed successfully.
